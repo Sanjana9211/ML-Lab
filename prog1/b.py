@@ -73,7 +73,7 @@ print("Best First Search Path:", path)
 #     closed_list.add(start)
 
 #     while open_list:
-#         open_list.sort( reverse=True)
+#         open_list.sort(key = lambda x: heuristic[x[1]],reverse=True)
 #         cost, node = open_list.pop()
 #         path.append(node)
 
