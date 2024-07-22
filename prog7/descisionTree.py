@@ -1,6 +1,7 @@
+
 # ID3
 
-
+from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 import pandas as pd
 import math
@@ -103,7 +104,7 @@ from sklearn.model_selection import train_test_split
 
 # Splitting the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X.values, y.values, test_size=0.2, random_state=42)
-
+encoder = OneHotEncoder(drop='first')
 # Build the decision tree using our implementation
 tree_id3 = build_tree(X_train, y_train, max_depth=5)
 
@@ -111,3 +112,6 @@ tree_id3 = build_tree(X_train, y_train, max_depth=5)
 accuracy_id3 = evaluate_tree(tree_id3, X_test, y_test)
 print("ID3 Algorithm Results:")
 print(f"Accuracy: {accuracy_id3}")
+plt.figure(figsize=(12, 8))
+plot_tree(clf_id3, filled=True, feature_names=encoder.get_feature_names_out(['Outlook', 'Temperature', 'Humidity', 'Windy']), class_names=['No', 'Yes'])
+plt.show()
