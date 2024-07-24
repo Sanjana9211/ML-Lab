@@ -1,7 +1,6 @@
 
 # ID3
 
-from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 import pandas as pd
 import math
@@ -112,6 +111,3 @@ tree_id3 = build_tree(X_train, y_train, max_depth=5)
 accuracy_id3 = evaluate_tree(tree_id3, X_test, y_test)
 print("ID3 Algorithm Results:")
 print(f"Accuracy: {accuracy_id3}")
-plt.figure(figsize=(12, 8))
-plot_tree(clf_id3, filled=True, feature_names=encoder.get_feature_names_out(['Outlook', 'Temperature', 'Humidity', 'Windy']), class_names=['No', 'Yes'])
-plt.show()
